@@ -11,6 +11,7 @@
 #'   should be named (see example below)
 #' @param order A character string specifying the sorting method to use for the
 #'   output. Must be either "Who" (the default) or "Whom" (see examples).
+#' @param round Integer. With how many digits should amounts owed be displayed. Defaults to 2
 #' @return A 3-column data frame containing the name of the person owing the
 #'   money, the amount owed and the recipient.
 #' @examples
@@ -19,9 +20,9 @@
 #' dispatch(balance)
 #' dispatch(balance, order="Whom")
 
-dispatch <- function(balance, order=c("Who","Whom")) {
+dispatch <- function(balance, order=c("Who","Whom"), round=2) {
 	
-	stopifnot(is.numeric(balance), length(balance) >= 2, sum(balance) == 0)
+	stopifnot(is.numeric(balance), length(balance) >= 2, sum(balance) <= 0.1)
 	order <- match.arg(order)
 	
 	pos <- sort(balance[balance>0], decreasing = FALSE)
@@ -52,6 +53,8 @@ dispatch <- function(balance, order=c("Who","Whom")) {
 	out$Owes.What <- round(out$Owes.What,2)
 	out[,1] <- factor(out[,1], levels=sort(levels(out[,1])))
 	out[,3] <- factor(out[,3], levels=sort(levels(out[,3])))
+	
+	out[,2] <- round(out[,2],round)
 
 	if (order == "Who") {
 		return(out[order(out[,1],out[,3]),])
