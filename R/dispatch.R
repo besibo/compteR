@@ -6,8 +6,8 @@
 #' 
 #' @param balance Numeric vector of length greater or equal to 2. The sum
 #'   should equal 0 since \code{balance} contains positive values for people
-#'   having spend more money than they should have, and negative values for
-#'   people having spend less money than they should have. Idealy, the vector
+#'   having spent more money than they should have, and negative values for
+#'   people having spent less money than they should have. Idealy, the vector
 #'   should be named (see example below)
 #' @param order A character string specifying the sorting method to use for the
 #'   output. Must be either "Who" (the default) or "Whom" (see examples).
