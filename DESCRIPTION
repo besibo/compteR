@@ -1,0 +1,13 @@
+Package: compteR
+Title: For Group Spendings, Determines Who Owes What to Whom
+Version: 0.1
+Author: Benoit Simon-Bouhet
+Maintainer: Benoit Simon-Bouhet <besibo@gmail.com>
+Description: As the saying goes, "a debt paid is a friend kept". But for group
+    spendings, determining who owes what to whom is a pain. \pkg{compteR} does it
+    for you.
+Depends:
+    R (>= 3.3.1)
+License: GPL (>= 3)
+LazyData: true
+RoxygenNote: 5.0.1
